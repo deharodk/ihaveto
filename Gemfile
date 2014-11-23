@@ -43,3 +43,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# project gems
+gem 'devise'
+gem 'pg'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'simple_form'
+gem 'capistrano', '~> 2.14.2'
+gem 'jquery-turbolinks'
+gem 'net-ssh', '2.7.0'
