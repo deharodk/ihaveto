@@ -7,17 +7,56 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
-    <div class="alert alert-<%= name == :notice ? "success" : "danger" %> dismis">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    </div>
+  <!-- flash messages -->
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <div class="alert alert-<%= name == :notice ? "success" : "danger" %> dismis">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= yield %>
+  <!-- loading container -->
+  <div class="loading-container">
+    <div class="loading-progress">
+      <div class="rotator">
+        <div class="rotator">
+          <div class="rotator colored">
+            <div class="rotator">
+              <div class="rotator colored">
+                <div class="rotator colored"></div>
+                <div class="rotator"></div>
+              </div>
+              <div class="rotator colored"></div>
+            </div>
+            <div class="rotator"></div>
+          </div>
+          <div class="rotator"></div>
+        </div>
+        <div class="rotator"></div>
+      </div>
+      <div class="rotator"></div>
+    </div>
+  </div>
 
+  <!-- Nav bar -->
+  <%= render 'layouts/header' %>
+
+  <!-- Main Container -->
+  <div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+      <!-- Sidebar -->
+      <%= render 'layouts/sidebar' %>
+          
+      <!-- Page Content -->
+      <div class="page-content">
+        <%= yield %>
+      </div> 
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+  </div>
 </body>
 </html>
